@@ -1,3 +1,17 @@
+//Copyright 2017 Andrey S. Ionisyan (anserion@gmail.com)
+//
+//Licensed under the Apache License, Version 2.0 (the "License");
+//you may not use this file except in compliance with the License.
+//You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+//Unless required by applicable law or agreed to in writing, software
+//distributed under the License is distributed on an "AS IS" BASIS,
+//WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//See the License for the specific language governing permissions and
+//limitations under the License.
+
 unit Unit1;
 
 {$mode objfpc}{$H+}
@@ -624,23 +638,11 @@ GCLK:=q_zero;  clk_num:=0; sim_time:=2;
 while clk_num<sim_time do
 begin
 //get input data
-if CheckGroupA.Checked[7] then a[7]:=q_one else a[7]:=q_zero;
-if CheckGroupA.Checked[6] then a[6]:=q_one else a[6]:=q_zero;
-if CheckGroupA.Checked[5] then a[5]:=q_one else a[5]:=q_zero;
-if CheckGroupA.Checked[4] then a[4]:=q_one else a[4]:=q_zero;
-if CheckGroupA.Checked[3] then a[3]:=q_one else a[3]:=q_zero;
-if CheckGroupA.Checked[2] then a[2]:=q_one else a[2]:=q_zero;
-if CheckGroupA.Checked[1] then a[1]:=q_one else a[1]:=q_zero;
-if CheckGroupA.Checked[0] then a[0]:=q_one else a[0]:=q_zero;
-
-if CheckGroupB.Checked[7] then b[7]:=q_one else b[7]:=q_zero;
-if CheckGroupB.Checked[6] then b[6]:=q_one else b[6]:=q_zero;
-if CheckGroupB.Checked[5] then b[5]:=q_one else b[5]:=q_zero;
-if CheckGroupB.Checked[4] then b[4]:=q_one else b[4]:=q_zero;
-if CheckGroupB.Checked[3] then b[3]:=q_one else b[3]:=q_zero;
-if CheckGroupB.Checked[2] then b[2]:=q_one else b[2]:=q_zero;
-if CheckGroupB.Checked[1] then b[1]:=q_one else b[1]:=q_zero;
-if CheckGroupB.Checked[0] then b[0]:=q_one else b[0]:=q_zero;
+for i:=0 to n-1 do
+begin
+     if CheckGroupA.Checked[i] then a[i]:=q_one else a[i]:=q_zero;
+     if CheckGroupB.Checked[i] then b[i]:=q_one else b[i]:=q_zero;
+end;
 
 //-----------------------------------------
 //test formula:
